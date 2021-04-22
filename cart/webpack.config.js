@@ -15,6 +15,7 @@ module.exports = {
       exposes: {
         "./CartShow": "./src/index",
       },
+      shared: ["faker"],
     }),
   ],
 };
