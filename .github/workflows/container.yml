@@ -25,7 +25,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MICROFRONTEND_CB52F }}'
           entryPoint: "./packages/container"
-          channelId: 'pr-${{ github.event.number }}-${{ github.event.pull_request.head.ref }}'
+          channelId: ''
           projectId: microfrontend-cb52f
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
