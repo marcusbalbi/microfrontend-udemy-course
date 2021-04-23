@@ -5,7 +5,7 @@ const MarketingApp = () => {
   const ref = useRef(null);
   const history = useHistory();
   useEffect(() => {
-    mount(ref.current, {
+    const { onParentNavigate } = mount(ref.current, {
       onNavigate: ({ pathname: nextPathname }) => {
         const { pathname } = history;
         if (pathname !== nextPathname) {
@@ -13,6 +13,7 @@ const MarketingApp = () => {
         }
       },
     });
+    history.listen(onParentNavigate);
   }, []);
 
   return <div ref={ref} />;
