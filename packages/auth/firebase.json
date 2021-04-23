@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "dist",
+    "headers": [
+      {
+        "source": "/remoteEntry.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
+    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
