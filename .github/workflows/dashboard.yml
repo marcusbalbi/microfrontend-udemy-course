@@ -1,0 +1,31 @@
+name: deploy-dashboard
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/dashboard/**'
+
+defaults:
+  run:
+    working-directory: packages/dashboard
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MICROFRONTEND_CB52F }}'
+          entryPoint: "./packages/dashboard"
+          channelId: 'dashboard'
+          projectId: microfrontend-cb52f
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
