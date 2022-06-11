@@ -91,6 +91,16 @@ export default function Header({ isSignedIn, onSignOut }) {
           >
             {isSignedIn ? "Logout" : "Login"}
           </Button>
+          <Button
+            color="error"
+            variant="outlined"
+            className={classes.link}
+            component={RouterLink}
+            to="/modulex"
+            onClick={onClick}
+          >
+            ModuleX
+          </Button>
         </Toolbar>
       </AppBar>
     </React.Fragment>

@@ -17,6 +17,9 @@ const AuthLazy = lazy(() => {
 const DashboardLazy = lazy(() => {
   return import("./components/DashboardApp");
 });
+const ModuleXLazy = lazy(() => {
+  return import("./components/ModuleXApp");
+});
 
 const generateClassname = createGenerateClassName({
   productionPrefix: "co",
@@ -45,6 +48,7 @@ export default () => {
           />
           <Suspense fallback={<Progressbar />}>
             <Switch>
+              <Route path="/modulex" component={ModuleXLazy} />
               <Route path="/auth">
                 <AuthLazy
                   onSignIn={() => {
